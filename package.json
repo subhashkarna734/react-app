@@ -2,7 +2,9 @@
   "name": "dev-tinder-frontend",
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start":"parcel index.html",
+    "build":"parcel build index.html",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -11,5 +13,8 @@
     "parcel": "^2.16.3",
     "react": "^19.2.3",
     "react-dom": "^19.2.3"
-  }
+  },
+  "browersList": [
+    "last 10 versions "
+  ]
 }
