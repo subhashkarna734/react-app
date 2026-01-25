@@ -1,0 +1,219 @@
+/* Reset */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 60px;
+  background-color: #ff5200;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo img {
+  width: 110px;
+  cursor: pointer;
+}
+
+/* Nav */
+.nav-item ul {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+/* Nav links */
+.nav-item li {
+  color: white;
+  font-size: 17px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+/* Hover effect */
+.nav-item li:hover {
+  background-color: white;
+  color: #ff5200;
+}
+
+/* Special Cart button style */
+.cart {
+  background-color: black;
+  color: white !important;
+  padding: 8px 18px;
+  border-radius: 20px;
+}
+
+.cart:hover {
+  background-color: white;
+  color: black !important;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+/* Wrapper */
+.input-search-box {
+  position: relative;
+  width: 60%;
+}
+
+/* Input */
+.input-text {
+  width: 100%;
+  padding: 14px 55px 14px 18px; /* space for icon */
+  font-size: 16px;
+  border: 2px solid #dcdcdc;
+  border-radius: 10px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-text:focus {
+  border-color: #ff5200;
+  box-shadow: 0 0 6px rgba(255, 82, 0, 0.3);
+}
+
+
+/* Icon perfectly inside */
+.search-icon {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  color: #ff5200;
+  pointer-events: none; 
+}
+
+.restaurant-card {
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-6px);
+}
+.card-image {
+  height: 180px;     /* 👈 THIS fixes banner issue */
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.offer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85),
+    rgba(0, 0, 0, 0.2),
+    transparent
+  );
+}
+.card-content {
+  padding: 10px 4px;
+}
+.card-content h3 {
+  margin: 8px 0 6px;
+  font-size: 18px;
+}
+.rating-time {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.rating {
+  background: #1ba672;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+.cuisine,
+.location {
+  font-size: 14px;
+  color: #666;
+  margin: 2px 0;
+}
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px 24px;
+}
+
+.filter-btn {
+  display: inline-flex;        /* key fix */
+  align-items: center;
+  justify-content: center;
+
+  width: auto;                 /* don’t take full width */
+  padding: 6px 12px;          /* smaller size */
+  font-size: 13px;
+
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  color: #111827;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin: 10px;
+}
+
+
+.filter-btn:hover {
+  background: #111827;
+  color: #ffffff;
+  border-color: #111827;
+  transform: translateY(-1px);
+}
+
+.filter-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.filter-btn:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.filter-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
