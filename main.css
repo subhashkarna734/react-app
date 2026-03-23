@@ -217,3 +217,67 @@ body {
   cursor: not-allowed;
 }
 
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.shimmer-card {
+  width: 250px;
+  height: 350px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px;
+  height: 100%;
+  width: 150px;
+  background: linear-gradient(
+    to right,
+    #f0f0f0 0%,
+    #e0e0e0 50%,
+    #f0f0f0 100%
+  );
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(400px);
+  }
+}
+
+.login-btn{
+  cursor: pointer;
+}
+
+.sumbit-btn{
+  cursor: pointer;
+}
+
+.user-card{
+  padding: 10px;
+  border: 2px solid black;
+  height: 300px;
+  width: 200px;
+  margin: 10px;
+  background-color: #666;
+}
+
+.user-cards{
+  padding: 10px;
+  border: 2px solid black;
+  height: 400px;
+  width: 300px;
+  margin: 10px;
+  background-color: #da8787;
+}
+
+

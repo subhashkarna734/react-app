@@ -1,38 +1,59 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
-import SearchBar from "./components/SearchBar";
-import RestaurentCard from "./components/RestaurentCard";
-import { rescard } from "./utils/restaurentdata";
-import {useState} from 'react';
+import Body from "./components/Body";
+import About from "./components/About";
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import Contact from "./components/Contact";
+import Error from "./components/Error";
+import Footer from "./components/Footer ";
+import RestaurentMenu from "./components/RestaurentMenu";
+import UserContext from "./utils/UserContext";
+
+// import Grocery from "./components/Grocery";
 
 const AppLayout = () => {
-    const [listOfRestaurants,setlistOfRestaurants] = useState(rescard)
   return (
-    <div className="app">
-      <Header />
-      <div className="body">
-        <div className="search">
-          <SearchBar />
-        </div>
-        <div
-          className="filter-btn"
-          onClick={() => {
-            const filterData = listOfRestaurants.filter((restaurent) => restaurent.info.avgRating > 4.5);
-            setlistOfRestaurants(filterData);
-          }}
-        >
-          Top Rated restaurent
-        </div>
-
-        <div className="card-row">
-          {listOfRestaurants.map((restaurent) => (
-            <RestaurentCard key={restaurent.info.id} data={restaurent} />
-          ))}
-        </div>
+      <div className="app">
+        <UserContext.Provider value={{loggedInUser : "subhash Kumar"}}>
+          <Header />
+        </UserContext.Provider>
+        <Outlet />
+        <Footer />
       </div>
-    </div>
-  );
+    
+  )
 };
+const Grocery = lazy(() => import("./components/Grocery"))
+const appRouter = createBrowserRouter([
+  {
+    path: '/',
+    element: <AppLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: '/',
+        element: <Body />
+      },
+      {
+        path: '/about',
+        element: <About />
+      },
+      {
+        path: '/contact',
+        element: <Contact />
+      },
+      {
+        path: '/grocery',
+        element: <Suspense fallback={<h1>Loading...</h1>}><Grocery /></Suspense>
+      },
+      {
+        path: '/restaurant/:id',
+        element: <RestaurentMenu />
+      }
+    ]
+  }
+])
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+root.render(<RouterProvider router={appRouter} />);
