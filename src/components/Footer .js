@@ -14,13 +14,6 @@ const Footer = () => {
           </p>
           <h1>{loggedInUser}</h1>
         </div>
-
-        <div style={styles.links}>
-          <a href="#" style={styles.link}>Home</a>
-          <a href="#" style={styles.link}>About</a>
-          <a href="#" style={styles.link}>Contact</a>
-          <a href="#" style={styles.link}>Privacy</a>
-        </div>
       </div>
 
       <div style={styles.bottom}>
